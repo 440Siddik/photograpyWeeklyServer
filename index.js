@@ -20,11 +20,17 @@ const client = new MongoClient(uri, {
 });
 async function run() {
   try {
-    const serviceCollection = client.db("phWeekly").collection("services");
+    const serviceCollection = client
+      .db("phWeekly")
+      .collection("services");
 
-    const reviewsCollection = client.db("phWeekly").collection("reviews");
+    const reviewsCollection = client
+      .db("phWeekly")
+      .collection("reviews");
 
-    const addServiceCollection = client.db("phWeekly").collection("addservice");
+    const addServiceCollection = client
+      .db("phWeekly")
+      .collection("addservice");
 
     app.get("/services", async (req, res) => {
       const query = {};
@@ -49,7 +55,7 @@ async function run() {
 
     //reviews
 
-    app.get("/myreviews", async (req, res) => {
+    app.get("/reviews", async (req, res) => {
       let query = {};
       if (req.query.email) {
         query = {
